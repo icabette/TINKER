@@ -1,0 +1,1 @@
+This is for ASUS Tinker Board 2s. History of trying to access DHT11
