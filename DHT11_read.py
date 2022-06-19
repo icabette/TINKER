@@ -90,6 +90,7 @@ class Driver:
         # 切除第一个高电平无效数据 握手数据
         data = data[1:]
         print(data, "Length: ", len(data))
+        
 
         # 数据不满足条件 不处理
         if len(data) != 40:
