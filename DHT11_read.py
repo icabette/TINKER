@@ -89,12 +89,12 @@ class Driver:
                 length = 0
         # 切除第一个高电平无效数据 握手数据
         data = data[1:]
-        print(data, "Length: ", len(data))
-        
 
         # 数据不满足条件 不处理
         if len(data) != 40:
             return Result(Result.ERR_MISSING_DATA, 0, 0)
+        
+        print(data, "Length: ", len(data))
         # 8bit湿度整数数据
         humidity_bit = data[0:8]
         # 8bit湿度小数数据
@@ -128,6 +128,7 @@ class Driver:
             # 小数点前后拼接
             temperature = float(str(temperature)+"."+str(temperature_point))
             humidity = float(str(humidity)+"."+str(humidity_point))
+            print("Humidity: ", humidity, "Temperature: ", temperature)
             return Result(Result.SUCCESS, temperature, humidity)
         else:
             return Result(Result.ERR_CRC, 0, 0)
@@ -142,5 +143,4 @@ DHT11 = Driver(3)
 Display = Result(0,0,0)
 while(1):
     Display = DHT11.start()
-    print("Humidity: ", Display.humidity, "Temperature: ", Display.temperature)
     time.sleep(1)
