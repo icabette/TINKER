@@ -49,7 +49,6 @@ class Driver:
         time.sleep(.018)
         # 然后主机拉高并延时等待传感器的响应
         GPIO.output(self.__channel, GPIO.HIGH)
-        time.sleep(.00004)
         # 执行1次需要十几微秒
         # 等待传感器的握手响应信号和数据信号
         GPIO.setup(self.__channel, GPIO.IN)

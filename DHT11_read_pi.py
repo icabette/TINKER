@@ -91,7 +91,7 @@ class Driver:
         data = data[1:]
         print (data, "length: ", len(data))
 
-        # 数据不满足条件 不处理시계앱
+        # 数据不满足条件 不处理
         if len(data) != 40:
             return Result(Result.ERR_MISSING_DATA, 0, 0)
         
