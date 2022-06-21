@@ -46,7 +46,7 @@ class Driver:
         # 先向传感器发送开始信号，握手 LOW
         GPIO.output(self.__channel, GPIO.LOW)
         # 主机把总线拉低必须大于18毫秒，这里采用20毫秒
-        time.sleep(.02)
+        time.sleep(.018)
         # 然后主机拉高并延时等待传感器的响应
         GPIO.output(self.__channel, GPIO.HIGH)
         time.sleep(.00004)
