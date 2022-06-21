@@ -5,7 +5,7 @@
 # 一次完整的数据为40bit，高位先出
 # 8bit湿度整数数据 + 8bit湿度小数数据 + 8bit温度整数数据 + 8bit温度小数数据 + 8bit校验和
 
-import ASUS.GPIO as GPIO
+import RPi.GPIO as GPIO
 import time
 
 class Result:
@@ -89,13 +89,13 @@ class Driver:
                 length = 0
         # 切除第一个高电平无效数据 握手数据
         data = data[1:]
-        #print (data, "length: ", len(data))
+        print (data, "length: ", len(data))
 
-        # 数据不满足条件 不处理
+        # 数据不满足条件 不处理시계앱
         if len(data) != 40:
             return Result(Result.ERR_MISSING_DATA, 0, 0)
         
-        #print(data, "Length: ", len(data))
+        print(data, "Length: ", len(data))
         # 8bit湿度整数数据
         humidity_bit = data[0:8]
         # 8bit湿度小数数据
